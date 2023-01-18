@@ -4,14 +4,12 @@ let descricao = document.querySelector('.d-1-4');
 let aviso = document.querySelector('.divisao-2');
 let lateral = document.querySelector('.d-1-right');
 let numeros = document.querySelector('.d-1-3');
-
 let etapaAtual = 0;
 let numero = '';
 let votoBranco = false;
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
-
     let numeroHtml = `<div class="numero pisca"></div>` + `<div class="numero"></div>` + `<div class="numero"></div>` + `<div class="numero"></div>` + `<div class="numero"></div>`;
     votoBranco = false; 
 
@@ -22,7 +20,6 @@ function comecarEtapa() {
             numeroHtml += `<div class="numero"></div>`;
         }
     }
-
     seuVotoPara.style.display = 'none';
     cargo.innerHTML = etapa.titulo;
     descricao.innerHTML = '';
@@ -30,7 +27,6 @@ function comecarEtapa() {
     lateral.innerHTML = '';
     numeros.innerHTML = numeroHtml;
 }
-
 function atualizaInterface() {
     let etapa = etapas[etapaAtual];
     let candidato = etapa.candidatos.filter((item) => {
@@ -56,13 +52,11 @@ function atualizaInterface() {
         descricao.innerHTML = '<div class="aviso--grande pisca">VOTO NULO</div>';
     } 
 }
-
 function clicou(n) {
     let elNumero = document.querySelector('.numero.pisca');
     if(elNumero !== null) {
         elNumero.innerHTML = n;
         numero = `${numero}${n}`;
-
         elNumero.classList.remove('pisca');
         if(elNumero.nextElementSibling !== null) {
             elNumero.nextElementSibling.classList.add('pisca');
